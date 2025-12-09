@@ -1,26 +1,35 @@
-# python
+# --- Python compiled files ---
 __pycache__/
-*.pyc
+*.py[cod]
 *.pyo
 *.pyd
 
-# environments
-venv/
-.env
+# --- Python virtual envs ---
 .venv/
+venv/
+env/
 
-# local config
+# --- Environment / secrets ---
+.env
+.env.*
+
+# --- Local config overrides ---
 config/*.local.yaml
 
-# docker volumes
+# --- Docker volumes / data ---
 volumes/
-postgres_data_*
+postgres_data_*/
 
-# mac / linux
+# --- OS junk ---
 .DS_Store
 
-# vscode
+# --- Editors ---
 .vscode/
+.idea/
 
-# frontend node
+# --- Frontend (Node) ---
+frontend/node_modules/
+frontend/dist/
+
+# if for some reason you ever run npm at repo root:
 node_modules/
