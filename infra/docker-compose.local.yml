@@ -1,0 +1,29 @@
+services:
+  backend:
+      build:
+        context: ../backend
+        dockerfile: Dockerfile
+      environment:
+        DB_USER: mluser
+        DB_PASSWORD: mlpass
+        DB_HOST: movielens_db_local
+        DB_PORT: "5432"
+        DB_NAME: movielens
+      ports:
+        - "8000:8000"
+      depends_on:
+        - db 
+  db:
+    image: postgres:16
+    container_name: movielens_db_local
+    environment:
+      POSTGRES_USER: mluser
+      POSTGRES_PASSWORD: mlpass
+      POSTGRES_DB: movielens
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data_local:/var/lib/postgresql/data
+
+volumes:
+  postgres_data_local:
